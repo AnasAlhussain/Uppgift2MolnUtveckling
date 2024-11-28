@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: Uppgift2MolnUtveckling
-  AZURE_WEBAPP_PACKAGE_PATH: "./publish"
+  AZURE_WEBAPP_PACKAGE_PATH2: "./publish"
 
 jobs:
   publish:
@@ -29,11 +29,11 @@ jobs:
         run: dotnet build ./Uppgift2MolnUtveckling.sln --configuration Release --no-restore
         
       - name: Publish
-        run: dotnet publish ./Uppgift2MolnUtveckling.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: dotnet publish ./Uppgift2MolnUtveckling.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH2 }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+          package: "${{ env.AZURE_WEBAPP_PACKAGE_PATH2 }}"

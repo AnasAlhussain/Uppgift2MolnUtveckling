@@ -50,4 +50,4 @@ jobs:
           app-name: 'Uppgift2MolnUtveckling'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_32E06DF6E3B142EEA6E913F86B01F0B }}
+          publish-profile: ${{ secrets.Anas }}
